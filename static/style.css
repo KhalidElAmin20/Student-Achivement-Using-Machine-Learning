@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: inline-block;
+    flex-wrap: nowrap;
+    justify-content: space-between; /* Distribute items evenly */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="number"],
+select {
+    flex-basis: 45%; /* Set width for input fields */
+    padding: 5px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#prediction-result {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 20px;
+    
+}
+
+/* Center-align <p> elements */
+p {
+    text-align: center;
+}
+
+/* Align specific <p> element to the right */
+.right-aligned {
+    
+    margin-top: 1px;
+    text-align: right;
+    font-weight: bold;
+}
+
+/* Align specific <p> element to the left */
+.left-aligned {
+    text-align: left;
+    font-weight: bold;
+   
+}
+.horizontal-paragraph {
+    writing-mode: vertical-rl; /* Sets vertical writing mode */
+    text-align: left; /* Aligns text to the left */
+    margin: 20px; /* Adjust margin as needed */
+    font-size: 16px; /* Adjust font size as needed */
+    font-family: Arial, sans-serif; /* Specify font family */
+    line-height: 1.5; /* Adjust line height as needed */
+    background-color: #f0f0f0; /* Background color */
+    padding: 10px; /* Padding around the paragraph */
+    border-radius: 5px; /* Adds rounded corners */
+    border: 1px solid #ccc; /* Border */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Box shadow */
+  }
+  .right-aligned.move-up {
+    position: relative;
+    top: -70px; /* Adjust this value to move the paragraph up by 20px */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.table-container {
+    margin-right: 20px;
+}
+
+.form-container {
+    width: 500px;
+    padding: 30px;
+    background-color:rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+}
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.form-field {
+    flex: 1;
+    margin-right: 80px;
+}

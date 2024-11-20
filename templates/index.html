@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <h1>Student Performance Prediction</h1>
+    <p><strong>Predicts student performance using a machine learning model</strong></p>
+    <p class="left-aligned">Enter the required information below to make a prediction:</p>
+
+    <div class="container">
+        <div class="table-container">
+            <table>
+                <tr>
+                    {% for key, value in preprocessed_data[0].items() %}
+                    <th>{{ key }}</th>
+                    {% endfor %}
+                </tr>
+                {% for i in range(22) %}
+                <tr>
+                    {% for key, value in preprocessed_data[i].items() %}
+                    <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="form-container">
+            <form id="prediction-form">
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="age">Age:</label>
+                        <select name="age" id="age">
+                            <option value="">Select</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="Fedu">Father Education:</label>
+                        <select name="Fedu" id="Fedu">
+                            <option value="">Select</option>
+                            <option value="0">None</option>
+                            <option value="1">Primary education</option>
+                            <option value="2">5th to 9th grade</option>
+                            <option value="3">Secondary education</option>
+                            <option value="4">Higher education</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="Medu">Mother Education:</label>
+                        <select name="Medu" id="Medu">
+                            <option value="">Select</option>
+                            <option value="0">None</option>
+                            <option value="1">Primary education</option>
+                            <option value="2">5th to 9th grade</option>
+                            <option value="3">Secondary education</option>
+                            <option value="4">Higher education</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="reason">Reason choose school:</label>
+                        <select name="reason" id="reason">
+                            <option value="">Select</option>
+                            <option value="1">Close to "home"</option>
+                            <option value="2">School "reputation"</option>
+                            <option value="3">"Course" preference</option>
+                            <option value="4">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="higher">Take Higher Education:</label>
+                        <select name="higher" id="higher">
+                            <option value="">Select</option>
+                            <option value="1">No</option>
+                            <option value="2">Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="goout">Going out with friends:</label>
+                        <select name="goout" id="goout">
+                            <option value="">Select</option>
+                            <option value="1">Very low</option>
+                            <option value="2">Low</option>
+                            <option value="3">Moderate</option>
+                            <option value="4">High</option>
+                            <option value="5">Very High</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="romantic">With a romantic relationship:</label>
+                        <select name="romantic"id="romantic">
+                            <option value="">Select</option>
+                            <option value="1">No</option>
+                            <option value="2">Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="failures">Number of past class failures:</label>
+                        <select name="failures" id="failures">
+                            <option value="">Select</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit">Predict</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="prediction-result"></div>
+    <div class="right-aligned">
+        <p>Mean Absolute Error: {{ mean_absolute_error }}</p>
+        <p>Mean Square Error: {{ mean_square_error }}</p>
+        <p>R2-Score: {{ R2_score }}</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
